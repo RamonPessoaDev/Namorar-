@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namora comigo?</title>
+</head>
+
+<body>
+    <div id="conteudo">
+        <h1>Aceita namorar comigo?</h1>
+        <button class="btnSt" onclick="sim()">Sim</button>
+        <button class="btnSt" onclick="desvia(this)" onmouseover="desvia(this)">Não</button>
+        <img id="imagem" class="horizontal-center" style="display: none;" src="./coracao.png" alt="Imagem">
+    </div>
+</body>
+
+<style>
+    #conteudo {
+        background: #ff7a7a;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        text-align: center;
+        font-family: sans-serif;
+    }
+
+    .horizontal-center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 80%;
+    }
+    
+    .btnSt {
+        background-color: black;
+        color: #ffffff;
+        border: none;
+        padding: 10px;
+        width: 80px;
+        border-radius: 5px;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.2);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @media (max-width: 900px) {
+        #imagem {
+            width: 50%;
+            height: 30%;
+        }
+
+    }
+
+    .pulse-animation {
+        animation: pulse 1s ease-in-out infinite;
+    }
+</style>
+
+<script>
+    function sim() {
+        alert("Você aceitou namorar comigo! (uma das melhores escolhas da sua vidaaaaa!)");
+        document.getElementById('imagem').style.display = 'block';
+        document.getElementById('imagem').classList.add('pulse-animation');
+    }
+
+    function desvia(t) {
+        var btn = t;
+        btn.style.position = 'absolute';
+        btn.style.bottom = geraPosicao(10, 90);
+        btn.style.left = geraPosicao(10, 90);
+        console.log("Opa, desviei... Sem tempo para golpes!");
+    }
+
+    function geraPosicao(min, max) {
+        return (Math.random() * (max - min) + min) + "%";
+    }
+</script>
+
+</html>
